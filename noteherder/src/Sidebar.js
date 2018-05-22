@@ -58,7 +58,38 @@ const styles = {
   logoImg: {
     width: '3rem',
     paddingLeft: '0.4rem',
+  },
+  aNewNote: {
+    marginTop: '2rem',
+    position: 'relative',
+    width: '40px',
+  },
+  button: {
+    backgroundColor: 'transparent',
+    border: '0',
+    color: '#008BF8',
+    cursor: 'pointer',
+  },
+  aImg: {
+    position: 'absolute',
+    left: '0rem',
+    width: '100%',
+    transition: 'opacity 0.25s ease-in-out',
+  },
+  hoverImgOutline: {
+    opacity: '0rem',
+  },
+  signOut: {
+    position: 'absolute',
+    bottom: '1rem',
+  },
+  signOutButton: {
+    outline: 'none',
+  },
+  signOutButtonifa: {
+    fontSize: '2rem',
   }
+  
 }
 
 export default Sidebar
