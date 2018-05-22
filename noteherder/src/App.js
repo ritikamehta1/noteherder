@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 import './App.css'
 import Main from './Main'
 
-
-const i = 0
-
 class App extends Component {
   render() {
     return (
