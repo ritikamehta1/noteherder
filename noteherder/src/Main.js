@@ -1,5 +1,6 @@
 import React from 'react'
 
+import base from './base'
 import Sidebar from './Sidebar'
 import NoteList from './NoteList'
 import NoteForm from './NoteForm'
@@ -11,6 +12,14 @@ class Main extends React.Component {
       currentNote: this.blankNote(),
       notes: [],
     }
+  }
+
+  componentWillMount() {
+    base.syncState(`notes/${this.props.uid}`, {
+      context: this,
+      state: 'notes',
+      asArray: true,
+    })
   }
 
   blankNote = () => {
@@ -44,7 +53,7 @@ class Main extends React.Component {
 
     this.setState({ notes })
     this.setCurrentNote(note)
-  }
+}
 
   removeCurrentNote = () => {
     const notes = [...this.state.notes]
@@ -61,7 +70,10 @@ class Main extends React.Component {
   render() {
     return (
       <div className="Main" style={style}>
-        <Sidebar resetCurrentNote={this.resetCurrentNote} />
+        <Sidebar
+          resetCurrentNote={this.resetCurrentNote}
+          signOut={this.props.signOut}
+        />
         <NoteList
           notes={this.state.notes}
           setCurrentNote={this.setCurrentNote}
